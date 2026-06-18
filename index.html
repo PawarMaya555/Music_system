@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GP-MusicCatalog</title>
+    <link rel="stylesheet" href="demo.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo" onclick="renderMainCategories()">
+          GP-Music<span>Catalog</span>
+        </div>
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search woofer, amplifier, petti..."
+            oninput="handleSearch()" />
+        </div>
+        <div class="filter-box">
+          <label>Max Price: ₹<span id="priceLabel">100000</span></label>
+          <input
+            type="range"
+            id="priceFilter"
+            min="100"
+            max="100000"
+            value="100000"
+            step="100"
+            oninput="handlePriceFilter()" />
+        </div>
+        <div class="cart-btn" onclick="toggleCartModal()">
+          🛒 Cart <span id="cartCount">0</span>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main-container">
+      <div class="breadcrumb" id="breadcrumb">Home</div>
+      <hr
+        style="margin-bottom: 20px; border: 0; border-top: 1px solid #e0e0e0" />
+
+      <section id="home-categories" class="view-section">
+        <h2 class="section-title">Main Categories</h2>
+        <div class="grid-4" id="homeCategoryGrid"></div>
+      </section>
+
+      <section id="level-3-view" class="view-section hidden">
+        <h2 class="section-title" id="level3Title">Category Page 3</h2>
+        <div class="grid-4" id="level3Grid"></div>
+      </section>
+
+      <section id="product-gallery" class="view-section hidden">
+        <h2 class="section-title" id="galleryTitle">Products Showcase</h2>
+        <div class="grid-4" id="productGrid"></div>
+      </section>
+
+      <section id="product-info" class="view-section hidden">
+        <h2 class="section-title">Product Info</h2>
+        <div class="product-detail-container">
+          <div class="detail-images-sect">
+            <div class="main-img-box" onclick="openFullscreenView()">
+              <img id="mainDetailImg" src="" alt="Main Component Image" />
+            </div>
+            <div class="thumb-images" id="thumbImagesContainer"></div>
+          </div>
+
+          <div class="detail-info-sect">
+            <h1 id="detailName">Component Name Loading...</h1>
+            <div class="detail-price" id="detailPrice">₹0</div>
+
+            <div class="specs-table">
+              <h3>Technical Specifications</h3>
+              <table>
+                <tr>
+                  <td>Watt:</td>
+                  <td id="specWatt">N/A</td>
+                </tr>
+                <tr>
+                  <td>Ohm:</td>
+                  <td id="specOhm">N/A</td>
+                </tr>
+                <tr>
+                  <td>Cone Type:</td>
+                  <td id="specCone">N/A</td>
+                </tr>
+                <tr>
+                  <td>Magnet:</td>
+                  <td id="specMagnet">N/A</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="specs-table" style="margin-top: 15px">
+              <h3>Description</h3>
+              <p class="detail-desc" id="detailDesc">
+                No technical briefing provided for this product.
+              </p>
+            </div>
+
+            <div class="purchase-controls-row detail-page-controls"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="fullscreenModal"
+      class="fullscreen-modal"
+      onclick="closeFullscreenView()">
+      <span class="close-fullscreen" onclick="closeFullscreenView()"
+        >&times;</span
+      >
+
+      <button
+        class="nav-arrow left-arrow"
+        onclick="event.stopPropagation(); navigateFullscreen(-1)">
+        &#10094;
+      </button>
+      <img
+        id="fullscreenImg"
+        class="fullscreen-content"
+        alt="Big View Display" />
+      <button
+        class="nav-arrow right-arrow"
+        onclick="event.stopPropagation(); navigateFullscreen(1)">
+        &#10095;
+      </button>
+
+      <div id="fullscreenCaption"></div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h3>Shopping Cart</h3>
+          <span class="close-cart" onclick="toggleCartModal()">&times;</span>
+        </div>
+        <div class="cart-items-list" id="cartItemsList"></div>
+        <div class="cart-footer">
+          <div class="total-amount-row">
+            <span>Grand Total:</span>
+            <span id="cartTotal">₹0</span>
+          </div>
+          <button
+            class="checkout-btn"
+            onclick="alert('Proceeding to place order via WhatsApp API Integration...')">
+            Order via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="demoHomepage.js"></script>
+    <script src="demoProductData.js"></script>
+    <script src="demologic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,628 @@
+:root {
+  --primary-color: #007bff;
+  --accent-color: #ff6a00;
+  --text-color: #333;
+  --border-color: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+body {
+  background-color: #f4f6f9;
+  color: var(--text-color);
+  padding-bottom: 60px;
+}
+
+/* NAVBAR STYLE */
+.navbar {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.logo span {
+  color: var(--accent-color);
+}
+.search-box {
+  flex: 1;
+  min-width: 200px;
+}
+.search-box input {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.filter-box {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+.cart-btn {
+  background-color: var(--accent-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* LAYOUT DESIGN */
+.main-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+  cursor: pointer;
+  line-height: 1.4;
+}
+.breadcrumb span {
+  color: var(--primary-color);
+}
+.section-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid var(--accent-color);
+  padding-left: 10px;
+}
+
+/* PERFECT SQUARE RESPONSIVE GRID FOR ALL PAGES */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS WITH SQUARE ASPECT-RATIO IMAGES */
+.card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-color);
+}
+
+/* इमेजेस को परफेक्ट स्क्वायर (1:1) शेप देने के लिए */
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #fafafa;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  border: 1px solid #f0f0f0;
+}
+.card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+/* FALLBACK BOX FOR MISSING IMAGES */
+.img-fallback-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #e9ecef, #dee2e6);
+  color: #495057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 15px;
+  border: 1px dashed #ced4da;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 8px 0;
+}
+
+/* STEPPER CONTROLS */
+.purchase-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+  width: 100%;
+}
+.qty-stepper {
+  display: flex;
+  align-items: center;
+  background: #f1f3f5;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 38px;
+}
+.step-btn {
+  background: #e9ecef;
+  border: none;
+  width: 34px;
+  height: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #495057;
+}
+.step-btn:hover {
+  background: #dee2e6;
+}
+.qty-number {
+  padding: 0 10px;
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 32px;
+  text-align: center;
+}
+
+.add-to-cart-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.add-to-cart-btn:hover {
+  background: #0056b3;
+}
+.inline-add-btn {
+  flex: 1;
+  height: 38px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* DETAIL PAGE AREA - BIG VIEW FIX FOR MAIN IMAGE */
+.product-detail-container {
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+.detail-images-sect {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.main-img-box {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+}
+.main-img-box:hover {
+  border-color: var(--primary-color);
+}
+
+/* मुख्य इमेज बिना किसी पाबंदी के पूरी बड़ी और फुल साइज में दिखेगी */
+.detail-images-sect img {
+  width: 100%;
+  height: auto;
+  max-height: 550px;
+  object-fit: contain;
+  transition: 0.2s;
+}
+
+/* THUMBNAILS GRID LOOK */
+.thumb-images {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.thumb-wrap {
+  width: 65px;
+  height: 65px;
+  border: 2px solid #dee2e6;
+  border-radius: 4px;
+  overflow: hidden;
+  background: white;
+  transition: 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.thumb-wrap.active-thumb {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px rgba(255, 106, 0, 0.3);
+}
+.thumb-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  border: none !important;
+}
+.thumb-wrap .img-fallback-box {
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 9px !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+.detail-info-sect {
+  flex: 1;
+  min-width: 0;
+}
+.detail-info-sect h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.detail-price {
+  font-size: 24px;
+  color: var(--accent-color);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.specs-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+.specs-table td {
+  padding: 6px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+}
+.specs-table td:first-child {
+  font-weight: 600;
+  color: #666;
+  width: 40%;
+}
+.detail-desc {
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.detail-page-controls {
+  margin-top: 25px;
+  justify-content: flex-start;
+  gap: 15px;
+}
+.large-stepper {
+  height: 44px;
+}
+.large-stepper .step-btn {
+  width: 40px;
+  font-size: 18px;
+}
+.large-stepper .qty-number {
+  font-size: 16px;
+  min-width: 40px;
+}
+.style-add {
+  min-width: 160px;
+  height: 44px;
+  background-color: var(--accent-color);
+  font-size: 14px;
+}
+.style-add:hover {
+  background-color: #d95a00;
+}
+
+/* ==========================================================================
+   ULTIMATE FULLSCREEN IMAGE POPUP - DEFINITIVE BIG VIEW REMOVING WHITE BOX
+   ========================================================================== */
+.fullscreen-modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.94
+  ) !important; /* प्रीमियम डार्क बैकग्राउंड */
+  align-items: center;
+  justify-content: center;
+}
+
+/* इमेज बिना किसी बॉर्डर और सफ़ेद फ्रेम के एकदम विशाल (Full Big Size) दिखाई देगी */
+.fullscreen-content {
+  margin: auto !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 95% !important; /* स्क्रीन की अधिकतम चौड़ाई घेरेगा */
+  max-height: 86vh !important; /* स्क्रीन की पूरी ऊंचाई का उपयोग करेगा */
+  object-fit: contain !important;
+  background: transparent !important; /* पुराना सफेद डिब्बा पूरी तरह नष्ट */
+  padding: 0 !important; /* सभी फालतू स्पेसिंग समाप्त */
+  border: none !important; /* सफेद बॉर्डर लाइन्स खत्म */
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  animation: zoomInPopup 0.2s ease-out;
+}
+
+@keyframes zoomInPopup {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#fullscreenCaption {
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+}
+
+.close-fullscreen {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 3100;
+}
+.close-fullscreen:hover {
+  color: var(--accent-color);
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  font-size: 30px;
+  font-weight: bold;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+  user-select: none;
+  z-index: 3100;
+}
+.nav-arrow:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-50%) scale(1.05);
+}
+.left-arrow {
+  left: 40px;
+}
+.right-arrow {
+  right: 40px;
+}
+
+/* CART DRAWER SLIDE */
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
+  background: white;
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  transition: 0.2s ease;
+}
+.cart-modal.open {
+  right: 0;
+}
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cart-header {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close-cart {
+  font-size: 24px;
+  cursor: pointer;
+}
+.cart-items-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 13px;
+  gap: 10px;
+}
+.qty-controls {
+  display: flex;
+  gap: 4px;
+}
+.qty-controls button {
+  padding: 4px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.cart-footer {
+  padding: 15px;
+  background: #f8f9fa;
+  border-top: 1px solid var(--border-color);
+}
+.total-amount-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.checkout-btn {
+  width: 100%;
+  background: #28a745;
+  color: white;
+  padding: 12px;
+  border: none;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* SMARTPHONE RESPONSIVE GRID CONFIGURATION */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 10px;
+  }
+  .search-box {
+    order: 2;
+    width: 100%;
+  }
+  .filter-box {
+    order: 3;
+    width: 100%;
+    align-items: center;
+  }
+  .cart-btn {
+    order: 1;
+    align-self: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  } /* मोबाइल पर भी सुंदर 2-कॉलम स्क्वायर ग्रिड */
+  .card {
+    padding: 10px;
+  }
+  .price {
+    font-size: 15px;
+  }
+
+  .purchase-controls-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .qty-stepper {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .inline-add-btn {
+    width: 100%;
+  }
+
+  .product-detail-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 12px;
+  }
+
+  .detail-page-controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .large-stepper {
+    flex: 1;
+  }
+  .style-add {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .nav-arrow {
+    padding: 8px 14px;
+    font-size: 22px;
+  }
+  .left-arrow {
+    left: 15px;
+  }
+  .right-arrow {
+    right: 15px;
+  }
+}
